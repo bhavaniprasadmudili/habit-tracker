@@ -1,0 +1,36 @@
+{
+  "name": "trackkar-habit-tracker",
+  "version": "1.0.0",
+  "description": "Habit Tracker application with OTP authentication, analytics, real-time updates, and admin dashboard.",
+  "main": "backend/server.js",
+  "scripts": {
+    "build:css": "npx tailwindcss -i frontend/styles.css -o frontend/dist/styles.css --minify",
+    "build:frontend": "esbuild frontend/app.js --bundle --outfile=frontend/dist/app.bundle.js --platform=browser --format=esm --target=es2020 --loader:.js=jsx",
+    "build": "npm run build:css && npm run build:frontend",
+    "prestart": "npm run build",
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.3",
+    "express-rate-limit": "^6.10.0",
+    "helmet": "^7.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.0",
+    "nodemailer": "^6.10.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.19.0",
+    "nodemon": "^3.0.1",
+    "tailwindcss": "^3.4.0"
+  }
+}
