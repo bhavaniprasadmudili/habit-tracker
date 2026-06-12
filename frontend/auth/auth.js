@@ -71,6 +71,7 @@ export function AuthFlow({ onAuthenticated }) {
     try {
       if (step === 'form') {
         if (mode === 'register') {
+          console.log('[auth UI][register] submitting:', { name, email, hasPassword: Boolean(password), hasConfirmPassword: Boolean(confirmPassword) });
           const data = await authService.register({ name, email, password, confirmPassword });
           setPendingType('register');
           setPendingUserId(data.userId);

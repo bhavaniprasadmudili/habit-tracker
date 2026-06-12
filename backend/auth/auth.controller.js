@@ -93,6 +93,7 @@ async function verifyOtpCode({ userId, type, code, markUsed = true }) {
 
 async function register(req, res) {
   try {
+    console.log('[auth][register] body:', { name: req.body?.name, email: req.body?.email, hasPassword: Boolean(req.body?.password), hasConfirmPassword: Boolean(req.body?.confirmPassword), phone: req.body?.phone });
     const { name, email, password, confirmPassword, phone } = req.body;
     if (!name || !email || !password || !confirmPassword) {
       return res.status(400).json({ message: 'Name, email, password and confirm password are required' });
